@@ -47,7 +47,7 @@ const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
             className="w-72 rounded-md px-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary-600 dark:bg-black"
             id="email-input"
             name="email"
-            placeholder={subscribed ? "You're subscribed !  🎉" : 'Enter your email'}
+            placeholder={subscribed ? 'Estas subscrito!  🎉' : 'Ingresa tu e-mail'}
             ref={inputEl}
             required
             type="email"
@@ -62,7 +62,7 @@ const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
             type="submit"
             disabled={subscribed}
           >
-            {subscribed ? 'Thank you!' : 'Sign up'}
+            {subscribed ? '¡Gracias!' : 'Enviar'}
           </button>
         </div>
       </form>
