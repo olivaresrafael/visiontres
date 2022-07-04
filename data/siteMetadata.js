@@ -1,13 +1,13 @@
 const siteMetadata = {
-  title: 'Vision Tres',
+  title: 'Forrest Media',
   author: 'Forrest Media Group',
-  headerTitle: 'Visión Tres',
-  description: 'Un espacio de análisis',
+  headerTitle: 'Forrest Media',
+  description: 'Un espacio sobre economía, crimen y ciberseguridad.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
-  siteLogo: '/static/images/logo.png',
+  siteLogo: '/static/images/forrest.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'address@yoursite.com',
