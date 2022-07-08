@@ -24,11 +24,11 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
       </Head>
       {isDevelopment && isSocket && <ClientReload />}
       <Analytics />
-      <LayoutWrapper>
-        <SessionProvider session={session}>
+      <SessionProvider session={session}>
+        <LayoutWrapper>
           <Component {...pageProps} />
-        </SessionProvider>
-      </LayoutWrapper>
+        </LayoutWrapper>
+      </SessionProvider>
     </ThemeProvider>
   )
 }
