@@ -23,10 +23,16 @@ export default function Home({ posts }) {
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-          <h3 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-300 sm:text-2xl sm:leading-10 md:text-3xl md:leading-14">
-            {siteMetadata.description}
-          </h3>
+        <div className="grid grid-cols-3 justify-items-center gap-3">
+          {siteMetadata.description.map((line) => (
+            <a
+              key={line}
+              href="#"
+              className="w-64 p-1 text-center text-xl font-semibold text-gray-900 dark:text-gray-100 sm:p-4"
+            >
+              {line}
+            </a>
+          ))}
         </div>
         <div className="container py-12">
           <div className="-m-4 flex flex-wrap">
