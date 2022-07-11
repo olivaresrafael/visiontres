@@ -1,7 +1,7 @@
 ---
 title: Criminales globalizados
 date: '2021-05-02'
-tags: ['criminales', 'drogas', 'crimen']
+tags: ['drogas', 'crimen']
 draft: false
 summary: 'Organizaciones criminales globalizadas se han fortalecido y diversificado'
 images: ['/static/images/blog/crime10.jpeg']
