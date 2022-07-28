@@ -47,34 +47,17 @@ export async function getStaticProps({ params }) {
 export default function Blog({ post, authorDetails, prev, next }) {
   const { mdxSource, toc, frontMatter } = post
 
-  const { data: session } = useSession()
-
   return (
     <>
-      {session ? (
-        <MDXLayoutRenderer
-          layout={frontMatter.layout || DEFAULT_LAYOUT}
-          toc={toc}
-          mdxSource={mdxSource}
-          frontMatter={frontMatter}
-          authorDetails={authorDetails}
-          prev={prev}
-          next={next}
-        />
-      ) : (
-        <div>
-          <Suscribe />
-          <MDXLayoutRenderer
-            layout={frontMatter.layout || DEFAULT_LAYOUT}
-            toc={toc}
-            mdxSource={mdxSource}
-            frontMatter={frontMatter}
-            authorDetails={authorDetails}
-            prev={prev}
-            next={next}
-          />
-        </div>
-      )}
+      <MDXLayoutRenderer
+        layout={frontMatter.layout || DEFAULT_LAYOUT}
+        toc={toc}
+        mdxSource={mdxSource}
+        frontMatter={frontMatter}
+        authorDetails={authorDetails}
+        prev={prev}
+        next={next}
+      />
     </>
   )
 }
