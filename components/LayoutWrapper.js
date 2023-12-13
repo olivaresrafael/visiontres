@@ -21,18 +21,11 @@ const LayoutWrapper = ({ children }) => {
                 <div className="mr-3">
                   <Image
                     src="/static/images/logo.png"
-                    alt="Picture of the author"
-                    width={150}
-                    height={100}
+                    alt="PanamEconomics"
+                    width={555}
+                    height={60}
                   />
                 </div>
-                {typeof siteMetadata.headerTitle === 'string' ? (
-                  <div className="hidden h-8 font-serif text-4xl font-medium sm:block">
-                    {siteMetadata.headerTitle}
-                  </div>
-                ) : (
-                  siteMetadata.headerTitle
-                )}
               </div>
             </Link>
           </div>
@@ -63,7 +56,7 @@ const LayoutWrapper = ({ children }) => {
                 }
               })}
             </div>
-            <ThemeSwitch />
+            {/* <ThemeSwitch /> */}
             <MobileNav />
           </div>
         </header>

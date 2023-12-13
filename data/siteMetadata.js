@@ -1,12 +1,8 @@
 const siteMetadata = {
-  title: 'Meta Intel News - The latest news from the Meta Intel community',
+  title: 'PanamEconomics Noticias - The latest news from the PanamEconomics community',
   author: 'Forrest Media Group',
-  headerTitle: 'Meta Intel',
-  description: [
-    'Inteligencia y Gobierno Corporativo',
-    'Ciberseguridad y Crimen Organizado',
-    'Riego Corporativo y Lavado de Dinero',
-  ],
+  headerTitle: 'PanamEconomics',
+  description: ['Gobierno Corporativo', 'Negocios', 'Riego Corporativo'],
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
