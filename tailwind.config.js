@@ -28,7 +28,19 @@ module.exports = {
         sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: colors.red,
+        primary: {
+          50: '#eef8ff',
+          100: '#dcf2ff',
+          200: '#b2e7ff',
+          300: '#6dd4ff',
+          400: '#20bfff',
+          500: '#00a7ff',
+          600: '#0085df',
+          700: '#0069b4',
+          800: '#005994',
+          900: '#004d80',
+          950: '#002e51',
+        },
         gray: colors.neutral,
       },
       typography: (theme) => ({

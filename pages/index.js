@@ -7,6 +7,7 @@ import Image from '@/components/Image'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
+import kebabCase from '@/lib/utils/kebabCase'
 
 import NewsletterForm from '@/components/NewsletterForm'
 
@@ -22,13 +23,13 @@ export default function Home({ posts }) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="grid grid-cols-3 justify-items-center gap-3">
+      <div className="divide-y divide-gray-300 dark:divide-gray-700">
+        <div className="grid grid-cols-4 justify-items-center gap-3">
           {siteMetadata.description.map((line) => (
             <a
               key={line}
-              href="#"
-              className="w-64 p-1 text-center text-xl font-semibold text-gray-900 dark:text-gray-100 sm:p-4"
+              href={`tags/${kebabCase(line)}`}
+              className="w-64 p-1 text-center text-xl font-semibold text-primary-900 hover:text-primary-700 dark:text-gray-100 dark:hover:text-primary-900 sm:p-4"
             >
               {line}
             </a>
@@ -79,7 +80,7 @@ export default function Home({ posts }) {
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
             href="/blog"
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+            className="text-primary-900 hover:text-primary-400 dark:text-primary-600 dark:hover:text-primary-800"
             aria-label="all posts"
           >
             Todos los posts &rarr;
@@ -117,7 +118,10 @@ function Li({ slug, date, title, summary, tags, image }) {
             <div className="space-y-6">
               <div>
                 <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                  <Link href={`/blog/${slug}`} className="text-gray-900 dark:text-gray-100">
+                  <Link
+                    href={`/blog/${slug}`}
+                    className="text-gray-900 hover:text-primary-800 dark:text-gray-100"
+                  >
                     {title}
                   </Link>
                 </h2>
@@ -140,7 +144,7 @@ function Li({ slug, date, title, summary, tags, image }) {
             <div className="text-base font-medium leading-6">
               <Link
                 href={`/blog/${slug}`}
-                className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                className="text-primary-900 hover:text-primary-300  dark:text-primary-500 dark:hover:text-primary-800"
                 aria-label={`Read "${title}"`}
               >
                 Leer más &rarr;

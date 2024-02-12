@@ -34,7 +34,7 @@ export default function Box({ title, description, imgSrc, href, tags }) {
               />
             ))}
           <div className="p-6">
-            <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
+            <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight hover:text-primary-800">
               {href ? (
                 <Link href={href} aria-label={`Link to ${title}`}>
                   {title}
@@ -52,7 +52,7 @@ export default function Box({ title, description, imgSrc, href, tags }) {
             {href && (
               <Link
                 href={href}
-                className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                className="text-base font-medium leading-6 text-primary-900 hover:text-primary-300  dark:text-primary-500 dark:hover:text-primary-800"
                 aria-label={`Link to ${title}`}
               >
                 Leer más &rarr;

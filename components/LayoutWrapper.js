@@ -6,24 +6,25 @@ import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
-import { useSession, signIn, signOut } from 'next-auth/react'
+import { useTheme } from 'next-themes'
 
 const LayoutWrapper = ({ children }) => {
-  const { data: session } = useSession()
-
+  const { theme, resolvedTheme } = useTheme()
   return (
     <SectionContainer>
       <div className="flex h-screen flex-col justify-between">
-        <header className="flex items-center justify-between py-10">
+        <header className="flex items-center justify-between pb-1 pt-5">
           <div>
             <Link href="/" aria-label={siteMetadata.headerTitle}>
               <div className="flex items-center justify-between">
                 <div className="mr-3">
                   <Image
-                    src="/static/images/logo.png"
+                    src={`/static/images/logo/logo_panam_${
+                      theme === 'dark' ? 'white' : 'blue'
+                    }.png`}
                     alt="PanamEconomics"
-                    width={555}
-                    height={60}
+                    width={300}
+                    height={150}
                   />
                 </div>
               </div>
@@ -32,31 +33,18 @@ const LayoutWrapper = ({ children }) => {
           <div className="flex items-center text-base leading-5">
             <div className="hidden sm:block">
               {headerNavLinks.map((link) => {
-                if (session && link.title == 'Login') {
-                  return (
-                    <Link
-                      key={link.title}
-                      onClick={() => signOut()}
-                      href="#"
-                      className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                    >
-                      {'Logout'}
-                    </Link>
-                  )
-                } else {
-                  return (
-                    <Link
-                      key={link.title}
-                      href={link.href}
-                      className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                    >
-                      {link.title}
-                    </Link>
-                  )
-                }
+                return (
+                  <Link
+                    key={link.title}
+                    href={link.href}
+                    className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+                  >
+                    {link.title}
+                  </Link>
+                )
               })}
             </div>
-            {/* <ThemeSwitch /> */}
+            <ThemeSwitch />
             <MobileNav />
           </div>
         </header>

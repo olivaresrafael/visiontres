@@ -1,13 +1,13 @@
 const siteMetadata = {
-  title: 'PanamEconomics Noticias - The latest news from the PanamEconomics community',
+  title: 'PanamEconomics Noticias - últimas noticias de la comunidad PanamEconomics',
   author: 'Forrest Media Group',
   headerTitle: 'PanamEconomics',
-  description: ['Gobierno Corporativo', 'Negocios', 'Riego Corporativo'],
-  language: 'en-us',
-  theme: 'light', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
+  description: ['Panama', 'Economía', 'Finanzas', 'Global'],
+  language: 'es',
+  theme: 'dark', // system, dark or light
+  siteUrl: 'https://www.panameconomics.com',
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
-  siteLogo: '/static/images/logo.png',
+  siteLogo: '/static/images/logo/logo_panam_blue.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'address@yoursite.com',
