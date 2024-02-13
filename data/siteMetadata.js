@@ -6,11 +6,11 @@ const siteMetadata = {
   language: 'es',
   theme: 'dark', // system, dark or light
   siteUrl: 'https://www.panameconomics.com',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteRepo: 'https://github.com/olivaresrafael/visiontres',
   siteLogo: '/static/images/logo/logo_panam_blue.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'address@yoursite.com',
+  email: 'info@panameconomics.com',
   github: 'https://github.com',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
@@ -23,7 +23,7 @@ const siteMetadata = {
     // supports plausible, simpleAnalytics, umami or googleAnalytics
     plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
-    umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
+    umamiWebsiteId: 'cb4b81d0-03a9-486d-831d-d634aa1aadd2', // e.g. 123e4567-e89b-12d3-a456-426614174000
     googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
   },
   newsletter: {
