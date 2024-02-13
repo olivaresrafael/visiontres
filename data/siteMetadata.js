@@ -2,7 +2,7 @@ const siteMetadata = {
   title: 'PanamEconomics Noticias - últimas noticias de la comunidad PanamEconomics',
   author: 'Forrest Media Group',
   headerTitle: 'PanamEconomics',
-  description: ['Panama', 'Economía', 'Finanzas', 'Global'],
+  description: ['Panamá', 'Economía', 'Finanzas', 'Metaverso'],
   language: 'es',
   theme: 'dark', // system, dark or light
   siteUrl: 'https://www.panameconomics.com',

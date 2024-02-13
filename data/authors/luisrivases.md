@@ -3,7 +3,7 @@ name: Luis Rivases
 avatar: /static/images/avatar.png
 occupation: Professor of Atmospheric Science
 company: Forrest Media Group
-email: luisrivases@metaintel.tk
+email: luisrivases@panameconomics.com
 twitter: https://twitter.com/Twitter
 linkedin: https://www.linkedin.com
 ---
