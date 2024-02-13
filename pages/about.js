@@ -5,7 +5,7 @@ import { PageSEO } from '@/components/SEO'
 const DEFAULT_LAYOUT = 'AboutLayout'
 
 export async function getStaticProps() {
-  const Luis = await getFileBySlug('authors', ['default'])
+  const Luis = await getFileBySlug('authors', ['luisrivases'])
   const Francisco = await getFileBySlug('authors', ['folivares'])
   const Rafael = await getFileBySlug('authors', ['olivaresrafael'])
   return { props: { Luis, Francisco, Rafael } }
