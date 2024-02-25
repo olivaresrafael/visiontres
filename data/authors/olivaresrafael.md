@@ -3,7 +3,7 @@ name: Rafael Olivares
 avatar: /static/images/avatar/rafael.jpeg
 occupation: Ciberseguridad, IT, data research
 twitter: https://twitter.com/olivaresrafael
-email: folivares@panameconomics.com
+email: rolivares@panameconomics.com
 linkedin: https://www.linkedin.com/in/olivaresrafael
 github: https://github.com/olivaresrafael
 ---

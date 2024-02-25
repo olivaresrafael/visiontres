@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
+import siteMetadata from '@/data/siteMetadata'
+import kebabCase from '@/lib/utils/kebabCase'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
@@ -18,7 +20,7 @@ const MobileNav = () => {
   }
 
   return (
-    <div className="sm:hidden">
+    <div className="md:hidden">
       <button
         type="button"
         className="ml-1 mr-1 h-8 w-8 rounded py-1"
@@ -73,6 +75,17 @@ const MobileNav = () => {
                 onClick={onToggleNav}
               >
                 {link.title}
+              </Link>
+            </div>
+          ))}
+          {siteMetadata.description.map((line) => (
+            <div key={line} className="px-12 py-4">
+              <Link
+                href={`tags/${kebabCase(line)}`}
+                className="text-2xl font-bold font-semibold tracking-widest text-primary-900 hover:text-primary-700 dark:text-gray-100 dark:hover:text-primary-900"
+                onClick={onToggleNav}
+              >
+                {line}
               </Link>
             </div>
           ))}

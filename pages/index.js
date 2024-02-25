@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
+import Sidebar from '@/layouts/Sidebar'
 import Tag from '@/components/Tag'
-import Card from '@/components/Card'
 import Box from '@/components/Box'
 import Image from '@/components/Image'
 import siteMetadata from '@/data/siteMetadata'
@@ -11,31 +12,51 @@ import kebabCase from '@/lib/utils/kebabCase'
 
 import NewsletterForm from '@/components/NewsletterForm'
 
-const MAX_DISPLAY = 8
-
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
+  const authors = await getAllFilesFrontMatter('authors')
+  const widgets = [
+    {
+      title: 'Nuestros autores',
+      content: [
+        {
+          title: authors[0].name,
+          imgSrc: authors[0].avatar,
+          articles: posts.filter((post) => post.authors[0] === 'folivares'),
+        },
+        {
+          title: authors[2].name,
+          imgSrc: authors[2].avatar,
+          articles: posts.filter((post) => post.authors[0] === 'luisrivases'),
+        },
+        {
+          title: authors[3].name,
+          imgSrc: authors[3].avatar,
+          articles: posts.filter((post) => post.authors[0] === 'olivaresrafael'),
+        },
+      ],
+    },
+    {
+      title: 'Últimas Publicaciones',
+      content: [
+        {
+          articles: posts.slice(0, 6),
+        },
+      ],
+    },
+  ]
 
-  return { props: { posts } }
+  return { props: { posts, widgets } }
 }
 
-export default function Home({ posts }) {
+export default function Home({ posts, widgets }) {
+  const [maxDisplay, setMaxDisplay] = useState(8)
+
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="divide-y divide-gray-300 dark:divide-gray-700">
-        <div className="grid grid-cols-4 justify-items-center gap-3">
-          {siteMetadata.description.map((line) => (
-            <a
-              key={line}
-              href={`tags/${kebabCase(line)}`}
-              className="w-64 p-1 text-center text-xl font-semibold text-primary-900 hover:text-primary-700 dark:text-gray-100 dark:hover:text-primary-900 sm:p-4"
-            >
-              {line}
-            </a>
-          ))}
-        </div>
-        <div className="container py-12">
+        <div className="container py-8">
           <div className="-m-4 flex flex-wrap">
             <Box
               title={posts[0].title}
@@ -46,45 +67,31 @@ export default function Home({ posts }) {
             />
           </div>
           <div className="-m-4 flex flex-wrap">
-            {posts.slice(1, 3).map((d) => (
-              <Card
-                key={d.title}
-                title={d.title}
-                description={d.summary}
-                imgSrc={d.images[0]}
-                href={`/blog/${d.slug}`}
-                tags={d.tags}
-              />
-            ))}
+            <Sidebar widgets={widgets} />
+            <div className="md py-4 md:w-2/3">
+              {posts.slice(1, maxDisplay).map((d) => (
+                <Box
+                  key={d.title}
+                  title={d.title}
+                  description={d.summary}
+                  imgSrc={d.images[0]}
+                  href={`/blog/${d.slug}`}
+                  tags={d.tags}
+                />
+              ))}
+            </div>
           </div>
         </div>
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {!posts.length && 'No posts found.'}
-          {posts.slice(3, MAX_DISPLAY).map((frontMatter) => {
-            const { slug, date, title, summary, tags, images } = frontMatter
-            return (
-              <Li
-                key={slug}
-                slug={slug}
-                date={date}
-                title={title}
-                summary={summary}
-                tags={tags}
-                image={images[0]}
-              />
-            )
-          })}
-        </ul>
       </div>
-      {posts.length > MAX_DISPLAY && (
+      {posts.length > maxDisplay && (
         <div className="flex justify-end text-base font-medium leading-6">
-          <Link
-            href="/blog"
+          <button
+            onClick={() => setMaxDisplay(maxDisplay + 4)}
             className="text-primary-900 hover:text-primary-400 dark:text-primary-600 dark:hover:text-primary-800"
             aria-label="all posts"
           >
-            Todos los posts &rarr;
-          </Link>
+            Load more &rarr;
+          </button>
         </div>
       )}
       {siteMetadata.newsletter.provider !== '' && (

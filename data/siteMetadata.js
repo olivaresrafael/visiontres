@@ -2,9 +2,14 @@ const siteMetadata = {
   title: 'PanamEconomics Noticias - últimas noticias de la comunidad PanamEconomics',
   author: 'Forrest Media Group',
   headerTitle: 'PanamEconomics',
-  description: ['Panamá', 'Economía', 'Finanzas', 'Metaverso'],
+  description: ['Panamá', 'Economía', 'Finanzas', 'Metaverso', 'Mundo', 'Cibercrimen'],
+  subtitles: [
+    { title: 'Paraisos fiscales', tag: 'paraisos-fiscales' },
+    { title: 'El futuro ya está aquí ', tag: 'metaverso' },
+    { title: 'Robo de datos', tag: 'Cibercrimen' },
+  ],
   language: 'es',
-  theme: 'dark', // system, dark or light
+  theme: 'light', // system, dark or light
   siteUrl: 'https://www.panameconomics.com',
   siteRepo: 'https://github.com/olivaresrafael/visiontres',
   siteLogo: '/static/images/logo/logo_panam_blue.png',
