@@ -30,8 +30,8 @@ export async function getStaticProps() {
           articles: posts.filter((post) => post.authors[0] === 'luisrivases'),
         },
         {
-          title: authors[3].name,
-          imgSrc: authors[3].avatar,
+          title: authors[4].name,
+          imgSrc: authors[4].avatar,
           articles: posts.filter((post) => post.authors[0] === 'olivaresrafael'),
         },
       ],
