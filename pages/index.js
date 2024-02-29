@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Sidebar from '@/layouts/Sidebar'
@@ -8,13 +8,16 @@ import Image from '@/components/Image'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
-import kebabCase from '@/lib/utils/kebabCase'
+import Ticker from 'react-ticker'
+import { fetchFinance } from '../pages/api/yahoo'
+import { isEmpty } from 'lodash'
 
 import NewsletterForm from '@/components/NewsletterForm'
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
   const authors = await getAllFilesFrontMatter('authors')
+
   const widgets = [
     {
       title: 'Nuestros autores',
@@ -51,10 +54,46 @@ export async function getStaticProps() {
 
 export default function Home({ posts, widgets }) {
   const [maxDisplay, setMaxDisplay] = useState(8)
+  const [ticker, setTicker] = useState([])
+
+  useEffect(() => {
+    isEmpty(ticker) &&
+      fetchFinance().then((data) => {
+        setTicker(data)
+      })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const GetRatesFromAPI = () =>
+    !isEmpty(ticker) ? (
+      <p style={{ whiteSpace: 'nowrap' }}>
+        {ticker.map((tick) => (
+          <>
+            <span className="pr-2">{tick.symbol}</span>
+            <span className="pr-2">{tick.regularMarketPrice}</span>
+            <span
+              className={
+                tick.regularMarketChangePercent > 0 ? 'pr-8 text-green-500' : 'pr-8 text-red-500'
+              }
+            >
+              {tick.regularMarketChangePercent.toFixed(2)}%
+            </span>
+          </>
+        ))}
+      </p>
+    ) : (
+      <p style={{ visibility: 'hidden' }}>Placeholder</p>
+    )
 
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+      {!isEmpty(ticker) && (
+        <div className="mt-4 border-2 border-red-400">
+          {<Ticker offset={8}>{() => <GetRatesFromAPI />}</Ticker>}
+        </div>
+      )}
+
       <div className="divide-y divide-gray-300 dark:divide-gray-700">
         <div className="container py-8">
           <div className="-m-4 flex flex-wrap">
