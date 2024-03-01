@@ -10,7 +10,7 @@ export default async (req, res) => {
     if (response.status >= 400) {
       return res.status(500).json({ error: `There was an error getting tickers` })
     }
-    const data = response.json()
+    const data = await response.json()
     console.log('response', response)
     console.log('data', data)
     return res.status(200).json(data.tickers)
