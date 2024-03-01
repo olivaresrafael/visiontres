@@ -56,9 +56,14 @@ export default function Home({ posts, widgets }) {
   const [maxDisplay, setMaxDisplay] = useState(8)
   const [ticker, setTicker] = useState([])
 
+  const refreshTicker = () =>
+    fetch(`/api/yahoo`, {
+      method: 'GET',
+    })
+
   useEffect(() => {
     isEmpty(ticker) &&
-      fetchFinance().then((data) => {
+      refreshTicker().then((data) => {
         setTicker(data)
       })
     // eslint-disable-next-line react-hooks/exhaustive-deps
