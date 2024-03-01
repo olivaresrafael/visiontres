@@ -56,15 +56,16 @@ export default function Home({ posts, widgets }) {
   const [maxDisplay, setMaxDisplay] = useState(8)
   const [ticker, setTicker] = useState([])
 
-  const refreshTicker = () =>
-    fetch(`/api/yahoo`, {
+  const refreshTicker = async () =>
+    await fetch(`/api/yahoo`, {
       method: 'GET',
     })
 
   useEffect(() => {
     isEmpty(ticker) &&
-      refreshTicker().then((data) => {
-        setTicker(data)
+      refreshTicker().then(async (data) => {
+        const resonse = await data.json()
+        setTicker(resonse)
       })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -73,7 +74,7 @@ export default function Home({ posts, widgets }) {
     !isEmpty(ticker) ? (
       <p style={{ whiteSpace: 'nowrap' }}>
         {ticker.map((tick) => (
-          <>
+          <span key={tick.symbol}>
             <span className="pr-2">{tick.symbol}</span>
             <span className="pr-2">{tick.regularMarketPrice}</span>
             <span
@@ -83,7 +84,7 @@ export default function Home({ posts, widgets }) {
             >
               {tick.regularMarketChangePercent.toFixed(2)}%
             </span>
-          </>
+          </span>
         ))}
       </p>
     ) : (
