@@ -25,17 +25,17 @@ export async function getStaticProps() {
         {
           title: authors[0].name,
           imgSrc: authors[0].avatar,
-          articles: posts.filter((post) => post.authors[0] === 'folivares'),
+          articles: posts.filter((post) => post.authors[0] === 'folivares').slice(0, 3),
         },
         {
           title: authors[2].name,
           imgSrc: authors[2].avatar,
-          articles: posts.filter((post) => post.authors[0] === 'luisrivases'),
+          articles: posts.filter((post) => post.authors[0] === 'luisrivases').slice(0, 3),
         },
         {
           title: authors[4].name,
           imgSrc: authors[4].avatar,
-          articles: posts.filter((post) => post.authors[0] === 'olivaresrafael'),
+          articles: posts.filter((post) => post.authors[0] === 'olivaresrafael').slice(0, 3),
         },
       ],
     },
@@ -47,13 +47,21 @@ export async function getStaticProps() {
         },
       ],
     },
+    {
+      title: 'EL FUTURO YA ESTÁ AQUÍ',
+      content: [
+        {
+          articles: posts.filter((post) => /EL FUTURO YA ESTÁ AQUÍ/.test(post.title)),
+        },
+      ],
+    },
   ]
 
   return { props: { posts, widgets } }
 }
 
 export default function Home({ posts, widgets }) {
-  const [maxDisplay, setMaxDisplay] = useState(8)
+  const [maxDisplay, setMaxDisplay] = useState(12)
   const [ticker, setTicker] = useState([])
 
   const refreshTicker = async () =>
@@ -135,7 +143,7 @@ export default function Home({ posts, widgets }) {
             className="text-primary-900 hover:text-primary-400 dark:text-primary-600 dark:hover:text-primary-800"
             aria-label="all posts"
           >
-            Load more &rarr;
+            Mostrar más &rarr;
           </button>
         </div>
       )}
