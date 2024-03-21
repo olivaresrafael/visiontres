@@ -24,7 +24,7 @@ export async function getStaticProps() {
       content: [
         {
           title: authors[0].name,
-          imgSrc: authors[0].avatar,
+          imgSrc: authors[1].avatar,
           articles: posts.filter((post) => post.authors[0] === 'folivares').slice(0, 3),
         },
         {
