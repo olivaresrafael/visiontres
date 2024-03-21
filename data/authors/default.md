@@ -1,10 +1,9 @@
 ---
-name: Francisco Olivares
-avatar: /static/images/avatar/francisco.jpeg
-occupation: Periodista de invertigación
+name: Panameconomics
+avatar: /static/images/logo/logo_panam_iso_blue.png
+occupation: Forrest Media
 company: Forrest Media Group
-email: folivares@metaintel.tk
-twitter: https://twitter.com/folivares10
+email: info@panameconomics.com
 ---
 
 Especialista en periodismo de investigación y temas de política y crimen organizado. Es consultor para firmas de riego.
