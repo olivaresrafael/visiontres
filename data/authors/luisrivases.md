@@ -1,6 +1,6 @@
 ---
 name: Luis Rivases
-avatar: /static/images/avatar.png
+avatar: /static/images/avatar/luis.jpeg
 occupation: Professor of Atmospheric Science
 company: Forrest Media Group
 email: luisrivases@panameconomics.com

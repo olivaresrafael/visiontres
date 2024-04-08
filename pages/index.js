@@ -23,7 +23,17 @@ export async function getStaticProps() {
       title: 'Nuestros autores',
       content: [
         {
-          title: authors[0].name,
+          title: authors[3].name,
+          imgSrc: authors[3].avatar,
+          articles: posts.filter((post) => post.authors[0] === 'mcamino').slice(0, 3),
+        },
+        {
+          title: authors[5].name,
+          imgSrc: authors[5].avatar,
+          articles: posts.filter((post) => post.authors[0] === 'tluigers').slice(0, 3),
+        },
+        {
+          title: authors[1].name,
           imgSrc: authors[1].avatar,
           articles: posts.filter((post) => post.authors[0] === 'folivares').slice(0, 3),
         },
@@ -46,6 +56,7 @@ export async function getStaticProps() {
           articles: posts.slice(0, 6),
         },
       ],
+      includeImg: true,
     },
     {
       title: 'EL FUTURO YA ESTÁ AQUÍ',
@@ -54,6 +65,7 @@ export async function getStaticProps() {
           articles: posts.filter((post) => /EL FUTURO YA ESTÁ AQUÍ/.test(post.title)),
         },
       ],
+      includeImg: true,
     },
   ]
 
