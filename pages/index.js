@@ -10,41 +10,54 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 import Ticker from 'react-ticker'
 import { fetchFinance } from '../pages/api/yahoo'
-import { isEmpty } from 'lodash'
+import { isEmpty, keyBy, includes } from 'lodash'
 
 import NewsletterForm from '@/components/NewsletterForm'
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
   const authors = await getAllFilesFrontMatter('authors')
-
+  const { axel, mcamino, tluigers, folivares, luisrivases, olivaresrafael, edumendez } = keyBy(
+    authors,
+    'slug'
+  )
   const widgets = [
     {
       title: 'Nuestros autores',
       content: [
         {
-          title: authors[3].name,
-          imgSrc: authors[3].avatar,
+          title: mcamino.name,
+          imgSrc: mcamino.avatar,
           articles: posts.filter((post) => post.authors[0] === 'mcamino').slice(0, 3),
         },
         {
-          title: authors[5].name,
-          imgSrc: authors[5].avatar,
+          title: axel.name,
+          imgSrc: axel.avatar,
+          articles: posts.filter((post) => post.authors[0] === 'axel').slice(0, 3),
+        },
+        {
+          title: tluigers.name,
+          imgSrc: tluigers.avatar,
           articles: posts.filter((post) => post.authors[0] === 'tluigers').slice(0, 3),
         },
         {
-          title: authors[1].name,
-          imgSrc: authors[1].avatar,
+          title: edumendez.name,
+          imgSrc: edumendez.avatar,
+          articles: posts.filter((post) => post.authors[0] === 'edumendez').slice(0, 3),
+        },
+        {
+          title: folivares.name,
+          imgSrc: folivares.avatar,
           articles: posts.filter((post) => post.authors[0] === 'folivares').slice(0, 3),
         },
         {
-          title: authors[2].name,
-          imgSrc: authors[2].avatar,
+          title: luisrivases.name,
+          imgSrc: luisrivases.avatar,
           articles: posts.filter((post) => post.authors[0] === 'luisrivases').slice(0, 3),
         },
         {
-          title: authors[4].name,
-          imgSrc: authors[4].avatar,
+          title: olivaresrafael.name,
+          imgSrc: olivaresrafael.avatar,
           articles: posts.filter((post) => post.authors[0] === 'olivaresrafael').slice(0, 3),
         },
       ],
@@ -63,6 +76,18 @@ export async function getStaticProps() {
       content: [
         {
           articles: posts.filter((post) => /EL FUTURO YA ESTÁ AQUÍ/.test(post.title)),
+        },
+      ],
+      includeImg: true,
+    },
+    {
+      title: 'La caverna del patriarca machirulo',
+      content: [
+        {
+          articles: posts.filter((post) => {
+            console.log('post.tags', post.tags)
+            return includes(post.tags, 'La caverna del patriarca machirulo')
+          }),
         },
       ],
       includeImg: true,

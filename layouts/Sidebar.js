@@ -40,7 +40,7 @@ function Widget({ widget }) {
                 />
               )}
               <div className="border-b-[1px] border-gray-200 py-2">
-                <a href={article.slug}>{article.title}</a>
+                <a href={`blog/${article.slug}`}>{article.title}</a>
               </div>
             </li>
           ))}
