@@ -84,10 +84,9 @@ export async function getStaticProps() {
       title: 'La caverna del patriarca machirulo',
       content: [
         {
-          articles: posts.filter((post) => {
-            console.log('post.tags', post.tags)
-            return includes(post.tags, 'La caverna del patriarca machirulo')
-          }),
+          articles: posts.filter((post) =>
+            includes(post.tags, 'La caverna del patriarca machirulo')
+          ),
         },
       ],
       includeImg: true,
