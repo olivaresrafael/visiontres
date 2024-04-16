@@ -6,7 +6,10 @@ const siteMetadata = {
   subtitles: [
     { title: 'Paraisos fiscales', tag: 'paraisos-fiscales' },
     { title: 'El futuro ya está aquí ', tag: 'metaverso' },
-    { title: 'Robo de datos', tag: 'Cibercrimen' },
+    {
+      title: 'La primera gran guerra mundial social',
+      tag: 'la-primera-gran-guerra-mundial-social',
+    },
   ],
   language: 'es',
   theme: 'light', // system, dark or light

@@ -97,7 +97,7 @@ const LayoutWrapper = ({ children }) => {
               {siteMetadata.subtitles.map(({ title, tag }) => (
                 <a
                   key={tag}
-                  href={`tags/${kebabCase(tag)}`}
+                  href={`/tags/${kebabCase(tag)}`}
                   className="w-64 p-2 text-center text-sm font-semibold text-primary-900 hover:text-primary-700 dark:text-gray-100 dark:hover:text-primary-900"
                 >
                   {title}
