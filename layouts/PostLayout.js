@@ -7,6 +7,20 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  FacebookIcon,
+  RedditShareButton,
+  TelegramShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  EmailIcon,
+  RedditIcon,
+  TelegramIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from 'next-share'
 
 const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
 const discussUrl = (slug) =>
@@ -18,7 +32,7 @@ const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day:
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
   const { slug, fileName, date, title, images, tags } = frontMatter
-
+  const url = `${siteMetadata.siteUrl}/blog/${slug}`
   return (
     <SectionContainer>
       <BlogSEO
@@ -110,6 +124,36 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                     </div>
                   </div>
                 )}
+                <div className="py-4 xl:py-8">
+                  <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    Compartir
+                  </h2>
+                  <div className="mt-2 flex flex-wrap space-x-1">
+                    <EmailShareButton url={url} title={title}>
+                      <EmailIcon size={30} round />
+                    </EmailShareButton>
+                    <TwitterShareButton
+                      url={url}
+                      title={title}
+                      hashtags={tags.map((tag) => tag.split(' ').join('').toLowerCase())}
+                    >
+                      <TwitterIcon size={30} round />
+                    </TwitterShareButton>
+                    <FacebookShareButton url={url} title={title}>
+                      <FacebookIcon size={30} round />
+                    </FacebookShareButton>
+                    <RedditShareButton url={url} title={title}>
+                      <RedditIcon size={30} round />
+                    </RedditShareButton>
+                    <TelegramShareButton url={url} title={title}>
+                      <TelegramIcon size={30} round />
+                    </TelegramShareButton>
+                    <WhatsappShareButton url={url} title={title}>
+                      <WhatsappIcon size={30} round />
+                    </WhatsappShareButton>
+                  </div>
+                </div>
+
                 {(next || prev) && (
                   <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
                     {prev && (
@@ -117,7 +161,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                           Post anterior
                         </h2>
-                        <div className="text-primary-900 hover:text-primary-300  dark:text-primary-500 dark:hover:text-primary-800">
+                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
                         </div>
                       </div>
@@ -127,7 +171,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                           Próximo post
                         </h2>
-                        <div className="text-primary-900 hover:text-primary-300  dark:text-primary-500 dark:hover:text-primary-800">
+                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/blog/${next.slug}`}>{next.title}</Link>
                         </div>
                       </div>
@@ -138,7 +182,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               <div className="pt-4 xl:pt-8">
                 <Link
                   href="/blog"
-                  className="text-primary-900 hover:text-primary-300  dark:text-primary-500 dark:hover:text-primary-800"
+                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                 >
                   &larr; Volver a Home
                 </Link>
