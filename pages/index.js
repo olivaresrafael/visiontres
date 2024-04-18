@@ -137,7 +137,11 @@ export default function Home({ posts, widgets }) {
 
   return (
     <>
-      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+      <PageSEO
+        title={siteMetadata.title}
+        description={siteMetadata.description}
+        keywords={siteMetadata.keywords}
+      />
       {!isEmpty(ticker) && (
         <div className="mt-4 border-2 border-red-400">
           {<Ticker offset={8}>{() => <GetRatesFromAPI />}</Ticker>}

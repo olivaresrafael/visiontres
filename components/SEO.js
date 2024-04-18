@@ -2,13 +2,25 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
 
-const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl }) => {
+const CommonSEO = ({
+  title,
+  description,
+  ogType,
+  ogImage,
+  twImage,
+  canonicalUrl,
+  keywords,
+  author,
+}) => {
   const router = useRouter()
   return (
     <Head>
       <title>{title}</title>
       <meta name="robots" content="follow, index" />
       <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+      <meta name="author" content={author}></meta>
+      <meta name="publisher" content={siteMetadata.author} />
       <meta property="og:url" content={`${siteMetadata.siteUrl}${router.asPath}`} />
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content={siteMetadata.title} />
@@ -32,13 +44,14 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl 
   )
 }
 
-export const PageSEO = ({ title, description }) => {
+export const PageSEO = ({ title, description, keywords }) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   return (
     <CommonSEO
       title={title}
       description={description}
+      keywords={keywords}
       ogType="website"
       ogImage={ogImageUrl}
       twImage={twImageUrl}
@@ -80,6 +93,7 @@ export const BlogSEO = ({
   url,
   images = [],
   canonicalUrl,
+  tags,
 }) => {
   const router = useRouter()
   const publishedAt = new Date(date).toISOString()
@@ -143,10 +157,12 @@ export const BlogSEO = ({
       <CommonSEO
         title={title}
         description={summary}
+        keywords={tags}
         ogType="article"
         ogImage={featuredImages}
         twImage={twImageUrl}
         canonicalUrl={canonicalUrl}
+        author={authorList[0].name}
       />
       <Head>
         {date && <meta property="article:published_time" content={publishedAt} />}
