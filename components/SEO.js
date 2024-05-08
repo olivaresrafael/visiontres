@@ -51,7 +51,7 @@ export const PageSEO = ({ title, description, keywords }) => {
     <CommonSEO
       title={title}
       description={description}
-      keywords={[...keywords, 'max camino']}
+      keywords={keywords}
       ogType="website"
       ogImage={ogImageUrl}
       twImage={twImageUrl}

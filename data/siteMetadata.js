@@ -22,7 +22,7 @@ const siteMetadata = {
     'noticias',
     'panam',
     'Maximiliano Camino Beran',
-    'Max Camino',
+    'max camino',
     'Francisco Olivares',
     'Axel Kaiser',
     'libertad',
