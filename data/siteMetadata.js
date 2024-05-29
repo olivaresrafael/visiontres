@@ -21,8 +21,6 @@ const siteMetadata = {
     'cibercrimen',
     'noticias',
     'panam',
-    'Maximiliano Camino Beran',
-    'max camino',
     'Francisco Olivares',
     'Axel Kaiser',
     'libertad',
