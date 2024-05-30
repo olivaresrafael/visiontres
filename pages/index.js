@@ -17,7 +17,7 @@ import NewsletterForm from '@/components/NewsletterForm'
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
   const authors = await getAllFilesFrontMatter('authors')
-  const { axel, mcamino, tluigers, folivares, luisrivases, olivaresrafael, edumendez } = keyBy(
+  const { axel, tluigers, folivares, luisrivases, olivaresrafael, edumendez } = keyBy(
     authors,
     'slug'
   )
@@ -25,16 +25,6 @@ export async function getStaticProps() {
     {
       title: 'Nuestros autores',
       content: [
-        {
-          title: mcamino.name,
-          imgSrc: mcamino.avatar,
-          articles: posts.filter((post) => post.authors[0] === 'mcamino').slice(0, 3),
-        },
-        {
-          title: axel.name,
-          imgSrc: axel.avatar,
-          articles: posts.filter((post) => post.authors[0] === 'axel').slice(0, 3),
-        },
         {
           title: tluigers.name,
           imgSrc: tluigers.avatar,
@@ -76,17 +66,6 @@ export async function getStaticProps() {
       content: [
         {
           articles: posts.filter((post) => /EL FUTURO YA ESTÁ AQUÍ/.test(post.title)),
-        },
-      ],
-      includeImg: true,
-    },
-    {
-      title: 'La caverna del patriarca machirulo',
-      content: [
-        {
-          articles: posts.filter((post) =>
-            includes(post.tags, 'La caverna del patriarca machirulo')
-          ),
         },
       ],
       includeImg: true,
