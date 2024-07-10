@@ -31,11 +31,6 @@ export async function getStaticProps() {
           articles: posts.filter((post) => post.authors[0] === 'tluigers').slice(0, 3),
         },
         {
-          title: edumendez.name,
-          imgSrc: edumendez.avatar,
-          articles: posts.filter((post) => post.authors[0] === 'edumendez').slice(0, 3),
-        },
-        {
           title: folivares.name,
           imgSrc: folivares.avatar,
           articles: posts.filter((post) => post.authors[0] === 'folivares').slice(0, 3),
