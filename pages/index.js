@@ -72,42 +72,42 @@ export async function getStaticProps() {
 
 export default function Home({ posts, widgets }) {
   const [maxDisplay, setMaxDisplay] = useState(12)
-  const [ticker, setTicker] = useState([])
+  // const [ticker, setTicker] = useState([])
 
-  const refreshTicker = async () =>
-    await fetch(`/api/yahoo`, {
-      method: 'GET',
-    })
+  // const refreshTicker = async () =>
+  //   await fetch(`/api/yahoo`, {
+  //     method: 'GET',
+  //   })
 
-  useEffect(() => {
-    isEmpty(ticker) &&
-      refreshTicker().then(async (data) => {
-        const resonse = await data.json()
-        setTicker(resonse)
-      })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  // useEffect(() => {
+  //   isEmpty(ticker) &&
+  //     refreshTicker().then(async (data) => {
+  //       const resonse = await data.json()
+  //       setTicker(resonse)
+  //     })
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [])
 
-  const GetRatesFromAPI = () =>
-    !isEmpty(ticker) ? (
-      <p style={{ whiteSpace: 'nowrap' }}>
-        {ticker.map((tick) => (
-          <span key={tick.symbol}>
-            <span className="pr-2">{tick.symbol}</span>
-            <span className="pr-2">{tick.regularMarketPrice}</span>
-            <span
-              className={
-                tick.regularMarketChangePercent > 0 ? 'pr-8 text-green-500' : 'pr-8 text-red-500'
-              }
-            >
-              {tick.regularMarketChangePercent.toFixed(2)}%
-            </span>
-          </span>
-        ))}
-      </p>
-    ) : (
-      <p style={{ visibility: 'hidden' }}>Placeholder</p>
-    )
+  // const GetRatesFromAPI = () =>
+  //   !isEmpty(ticker) ? (
+  //     <p style={{ whiteSpace: 'nowrap' }}>
+  //       {ticker.map((tick) => (
+  //         <span key={tick.symbol}>
+  //           <span className="pr-2">{tick.symbol}</span>
+  //           <span className="pr-2">{tick.regularMarketPrice}</span>
+  //           <span
+  //             className={
+  //               tick.regularMarketChangePercent > 0 ? 'pr-8 text-green-500' : 'pr-8 text-red-500'
+  //             }
+  //           >
+  //             {tick.regularMarketChangePercent.toFixed(2)}%
+  //           </span>
+  //         </span>
+  //       ))}
+  //     </p>
+  //   ) : (
+  //     <p style={{ visibility: 'hidden' }}>Placeholder</p>
+  //   )
 
   return (
     <>
@@ -116,11 +116,6 @@ export default function Home({ posts, widgets }) {
         description={siteMetadata.description}
         keywords={siteMetadata.keywords}
       />
-      {!isEmpty(ticker) && (
-        <div className="mt-4 border-2 border-red-400">
-          {<Ticker offset={8}>{() => <GetRatesFromAPI />}</Ticker>}
-        </div>
-      )}
 
       <div className="divide-y divide-gray-300 dark:divide-gray-700">
         <div className="container py-8">
