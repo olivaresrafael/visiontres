@@ -1,4 +1,5 @@
 import GA from './GoogleAnalytics'
+import GTM from './GoogleTagManager'
 import Plausible from './Plausible'
 import SimpleAnalytics from './SimpleAnalytics'
 import Umami from './Umami'
@@ -13,8 +14,12 @@ const Analytics = () => {
       {isProduction && siteMetadata.analytics.simpleAnalytics && <SimpleAnalytics />}
       {isProduction && siteMetadata.analytics.umamiWebsiteId && <Umami />}
       {isProduction && siteMetadata.analytics.googleAnalyticsId && <GA />}
+      {isProduction && siteMetadata.analytics.googleTagManagerId && <GTM />}
     </>
   )
 }
 
 export default Analytics
+
+// Export GTM NoScript for use in _document.js
+export { GTMNoScript } from './GoogleTagManager'
