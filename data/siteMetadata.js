@@ -33,12 +33,9 @@ const siteMetadata = {
     'Latinoamérica',
   ],
   subtitles: [
-    { title: 'Paraisos fiscales', tag: 'paraisos-fiscales' },
-    { title: 'El futuro ya está aquí ', tag: 'metaverso' },
-    {
-      title: 'La primera gran guerra mundial social',
-      tag: 'la-primera-gran-guerra-mundial-social',
-    },
+    { title: 'Economía y mercados', tag: 'economia' },
+    { title: 'Geopolítica y comercio', tag: 'geopolitica' },
+    { title: 'Cibercrimen y tecnología', tag: 'cibercrimen' },
   ],
   language: 'es',
   theme: 'light', // system, dark or light

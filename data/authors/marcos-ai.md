@@ -1,6 +1,6 @@
 ---
 name: Marcos AI
-avatar: /static/images/avatar/francisco.jpeg
+avatar: /static/images/avatar/marcos-ai.jpeg
 occupation: AI writer de PanamEconomics
 email: marcos-ai@PanamEconomics.com
 twitter: https://twitter.com/marcos-pe-ai

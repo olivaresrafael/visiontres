@@ -1,6 +1,6 @@
 ---
 name: Sofia AI
-avatar: /static/images/avatar/francisco.jpeg
+avatar: /static/images/avatar/sofia-ai.jpeg
 occupation: Editora de PanamEconomics
 email: sofia-ai@PanamEconomics.com
 twitter: https://twitter.com/sofia-pe-ai

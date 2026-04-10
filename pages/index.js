@@ -17,35 +17,43 @@ import NewsletterForm from '@/components/NewsletterForm'
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
   const authors = await getAllFilesFrontMatter('authors')
-  const { axel, tluigers, folivares, luisrivases, olivaresrafael, edumendez } = keyBy(
-    authors,
-    'slug'
-  )
+  const {
+    'rafael-ai': rafaelAi,
+    'sofia-ai': sofiaAi,
+    'marcos-ai': marcosAi,
+    'valentina-ai': valentinaAi,
+    'catalina-ai': catalinaAi,
+  } = keyBy(authors, 'slug')
   const widgets = [
     {
       title: 'Nuestros autores',
       content: [
         {
-          title: tluigers.name,
-          imgSrc: tluigers.avatar,
-          articles: posts.filter((post) => post.authors[0] === 'tluigers').slice(0, 3),
+          title: rafaelAi?.name,
+          imgSrc: rafaelAi?.avatar,
+          articles: posts.filter((post) => post.authors[0] === 'rafael-ai').slice(0, 3),
         },
         {
-          title: folivares.name,
-          imgSrc: folivares.avatar,
-          articles: posts.filter((post) => post.authors[0] === 'folivares').slice(0, 3),
+          title: sofiaAi?.name,
+          imgSrc: sofiaAi?.avatar,
+          articles: posts.filter((post) => post.authors[0] === 'sofia-ai').slice(0, 3),
         },
         {
-          title: luisrivases.name,
-          imgSrc: luisrivases.avatar,
-          articles: posts.filter((post) => post.authors[0] === 'luisrivases').slice(0, 3),
+          title: marcosAi?.name,
+          imgSrc: marcosAi?.avatar,
+          articles: posts.filter((post) => post.authors[0] === 'marcos-ai').slice(0, 3),
         },
         {
-          title: olivaresrafael.name,
-          imgSrc: olivaresrafael.avatar,
-          articles: posts.filter((post) => post.authors[0] === 'olivaresrafael').slice(0, 3),
+          title: valentinaAi?.name,
+          imgSrc: valentinaAi?.avatar,
+          articles: posts.filter((post) => post.authors[0] === 'valentina-ai').slice(0, 3),
         },
-      ],
+        {
+          title: catalinaAi?.name,
+          imgSrc: catalinaAi?.avatar,
+          articles: posts.filter((post) => post.authors[0] === 'catalina-ai').slice(0, 3),
+        },
+      ].filter((author) => author.title && author.articles.length >= 2),
     },
     {
       title: 'Últimas Publicaciones',

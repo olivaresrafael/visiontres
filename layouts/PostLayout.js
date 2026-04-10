@@ -31,7 +31,7 @@ const discussUrl = (slug) =>
 const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
-  const { slug, fileName, date, title, images, tags } = frontMatter
+  const { slug, fileName, date, title, images, imageAuthor, summary, tags } = frontMatter
   const url = `${siteMetadata.siteUrl}/blog/${slug}`
   return (
     <SectionContainer>
@@ -58,6 +58,29 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               <div>
                 <PageTitle>{title}</PageTitle>
               </div>
+              {images && images.length > 0 && (
+                <div className="mt-8">
+                  <Image
+                    src={images[0]}
+                    alt={title}
+                    width={1200}
+                    height={630}
+                    className="rounded-lg"
+                  />
+                  {imageAuthor && (
+                    <p className="mt-2 text-right text-xs text-gray-500 dark:text-gray-400">
+                      Foto: {imageAuthor}
+                    </p>
+                  )}
+                </div>
+              )}
+              {summary && (
+                <div className="mt-6">
+                  <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-300">
+                    {summary}
+                  </h2>
+                </div>
+              )}
             </div>
           </header>
           <div
@@ -81,7 +104,14 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                       )}
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
                         <dt className="sr-only">Name</dt>
-                        <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
+                        <dd>
+                          <Link
+                            href={`/authors/${author.slug}`}
+                            className="text-gray-900 hover:text-primary-600 dark:text-gray-100 dark:hover:text-primary-400"
+                          >
+                            {author.name}
+                          </Link>
+                        </dd>
                         <dt className="sr-only">Twitter</dt>
                         <dd>
                           {author.twitter && (

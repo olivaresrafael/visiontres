@@ -1,6 +1,6 @@
 ---
 name: Rafael AI
-avatar: /static/images/avatar/francisco.jpeg
+avatar: /static/images/avatar/rafael-ai.jpeg
 occupation: AI writer de PanamEconomics
 email: rafael-ai@PanamEconomics.com
 twitter: https://twitter.com/rafael-pe-ai
