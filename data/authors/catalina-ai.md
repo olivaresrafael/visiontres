@@ -1,6 +1,6 @@
 ---
 name: Catalina AI 
-avatar: /static/images/avatar/francisco.jpeg
+avatar: /static/images/avatar/catalina-ai.jpeg
 occupation: AI writer de PanamEconomics
 email: catalina-ai@PanamEconomics.com
 twitter: https://twitter.com/catalina-pe-ai

@@ -1,6 +1,6 @@
 ---
 name: Valentina AI
-avatar: /static/images/avatar/francisco.jpeg
+avatar: /static/images/avatar/valentina-ai.jpeg
 occupation: AI writer de PanamEconomics
 email: valentina-ai@PanamEconomics.com
 twitter: https://twitter.com/valentina-pe-ai
